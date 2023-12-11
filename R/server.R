@@ -6,6 +6,7 @@ server <- function() {
       req(input$upload)
       #munge_CoA(input$upload$datapath)
       # DEBUGGING
+      u<-input$upload$datapath
       require(tesseract)
       require(dplyr)
       message('txt portion')
