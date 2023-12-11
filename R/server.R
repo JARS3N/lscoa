@@ -1,16 +1,19 @@
 server <- function() {
   ######
   library(shiny)
+  library(dplyr)
+  library(tesseract)
+  print("start")
+  message('start message')
   function(input, output, session) {
     data <- reactive({
       req(input$upload)
       #munge_CoA(input$upload$datapath)
       # DEBUGGING
       u<-input$upload$datapath
-      require(tesseract)
-      require(dplyr)
       message('txt portion')
-      txt <- tesseract::ocr(u,engine=tesseract("eng"))
+      eng<-tesseract("eng")
+      txt <- tesseract::ocr(u,engine=eng)
       message('txt_vec')
       txt_vec<-strsplit(txt[[1]],split="\n")[[1]]
       message('summarize')
