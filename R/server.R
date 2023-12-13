@@ -25,6 +25,7 @@ server <- function() {
     observeEvent(input$upload,{
       u<-input$upload$datapath
       message('txt portion')
+      eng<-tesseract("eng")
       txt <- tesseract::ocr(u,engine=eng)
       cat(txt)
       message('txt_vec')
