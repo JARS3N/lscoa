@@ -21,7 +21,7 @@ server <- function() {
     #   summarize_CoA(txt_vec)
     #   #*****
     # })
-    
+      output$head <- renderTable({})
     observeEvent(input$upload,{
       u<-input$upload$datapath
       message('txt portion')
@@ -32,7 +32,7 @@ server <- function() {
       txt_vec<-strsplit(txt[[1]],split="\n")[[1]]
       message('summarize')
       TBL<-summarize_CoA(txt_vec)
-      
+      print(TBL)
     })
     
     
