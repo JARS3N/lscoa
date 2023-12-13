@@ -8,6 +8,8 @@ ui <- function(u) {
               "upload", "Upload a file"
             )),
 
-            mainPanel(tableOutput("head"))))
+            mainPanel(tableOutput("head"),
+                     textOutput("text")
+                     )))
   ######
 }
